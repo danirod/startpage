@@ -73,20 +73,38 @@ header {
 
 .bookmarks {
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
 
   margin-left: 0;
   padding-left: 0;
+  margin-top: 4em;
+
+  > li {
+    width: 50%;
+    flex-grow: 1;
+    box-sizing: border-box;
+
+    padding-left: 1em;
+    padding-right: 1em;
+    &:nth-child(2n) { padding-right: 0; }
+    &:nth-child(2n+1) { padding-left: 0; }
+  }
 
   h3 {
     color: black;
     text-align: center;
     padding: 5px;
     margin: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
 
   ul {
     margin-left: 0;
     border: 1px solid transparent;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     margin-bottom: 1em;
     padding: 5px;
     list-style: none;
@@ -130,14 +148,16 @@ header {
   }
 
   @media screen and (min-width: 768px) {
-    display: flex;
     margin-top: 6em;
 
-    > li {
+    & > li {
       flex: 1;
-      width: 50%;
+
       margin-right: 1em;
       &:last-child { margin-right: 0; }
+
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 }
