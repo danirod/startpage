@@ -1,0 +1,24 @@
+{
+  "name": "danirod-startpage",
+  "description": "my startpage",
+  "main": "index.js",
+  "authors": [
+    "Dani Rodríguez"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "startpage"
+  ],
+  "homepage": "https://github.com/danirod/startpage",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "^6.0.0"
+  }
+}

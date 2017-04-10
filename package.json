@@ -1,0 +1,31 @@
+{
+  "name": "danirod-startpage",
+  "version": "1.0.0",
+  "description": "my startpage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dani Rodríguez",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danirod/startpage.git"
+  },
+  "keywords": [
+    "startpage"
+  ],
+  "bugs": {
+    "url": "https://github.com/danirod/startpage/issues"
+  },
+  "homepage": "https://github.com/danirod/startpage#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-inject": "^4.2.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-webserver": "^0.9.1",
+    "main-bower-files": "^2.13.1"
+  }
+}
