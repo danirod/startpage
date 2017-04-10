@@ -5,6 +5,7 @@ const bowerFiles = require('main-bower-files'),
   htmlmin = require('gulp-htmlmin'),
   inject = require('gulp-inject'),
   sass = require('gulp-sass'),
+  watch = require('gulp-watch'),
   webserver = require('gulp-webserver');
 
 // Clean output
@@ -43,4 +44,9 @@ gulp.task('build:html', () => {
     .pipe(gulp.dest('./dist'))
 });
 
-gulp.task('build', ['build:bower', 'build:sass', 'build:html'])
+// Watch
+gulp.task('serve:watch', ['serve'], () => {
+  gulp.watch(['src/**/*.html', 'src/**/*.scss'], ['build']);
+});
+
+gulp.task('build', ['build:bower', 'build:sass', 'build:html']);
