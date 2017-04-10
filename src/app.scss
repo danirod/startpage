@@ -1,3 +1,69 @@
+$tomorrow-night-background:   #1d1f21;
+$tomorrow-night-current-line: #282a2e;
+$tomorrow-night-selection:    #373b41;
+$tomorrow-night-foreground:   #c5c8c6;
+$tomorrow-night-comment:      #969896;
+$tomorrow-night-red:          #cc6666;
+$tomorrow-night-orange:       #de935f;
+$tomorrow-night-yellow:       #f0c674;
+$tomorrow-night-green:        #b5bd68;
+$tomorrow-night-aqua:         #8abeb7;
+$tomorrow-night-blue:         #81a2be;
+$tomorrow-night-purple:       #b294bb;
+
+$background: $tomorrow-night-background;
+$foreground: $tomorrow-night-foreground;
+
 body {
+  background-color: $background;
+  color: $foreground;
   font-family: -apple-system;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: $tomorrow-night-current-line;
+  border-bottom: 1px solid $tomorrow-night-selection;
+  padding-left: 2em;
+  padding-right: 2em;
+
+  h1 {
+    padding: 0;
+    margin: 0;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 2;
+  }
+}
+
+.container {
+  margin-left: 2em;
+  margin-right: 2em;
+  
+  @media screen and (min-width: 768px) {
+    width: calc(768px - 4em);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.search {
+  margin-top: 4em;
+
+  input.search-query {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16pt;
+
+    background: transparent;
+    border: 1px solid $tomorrow-night-selection;
+    padding: 5px;
+    border-radius: 5px;
+    color: $tomorrow-night-foreground;
+
+    @media screen and (min-width: 768px) {
+      font-size: 20pt;
+    }
+  }
 }

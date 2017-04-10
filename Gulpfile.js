@@ -14,7 +14,7 @@ gulp.task('clean', () => {
 });
 
 // Serve
-gulp.task('serve', () => {
+gulp.task('server', () => {
   gulp.src('./dist/')
     .pipe(webserver());
 });
@@ -45,8 +45,10 @@ gulp.task('build:html', () => {
 });
 
 // Watch
-gulp.task('serve:watch', ['serve'], () => {
+gulp.task('watch', ['serve'], () => {
   gulp.watch(['src/**/*.html', 'src/**/*.scss'], ['build']);
 });
 
 gulp.task('build', ['build:bower', 'build:sass', 'build:html']);
+gulp.task('serve', ['build', 'server']);
+gulp.task('serve:watch', ['serve', 'watch']);
