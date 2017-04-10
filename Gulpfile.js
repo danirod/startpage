@@ -5,6 +5,7 @@ const bowerFiles = require('main-bower-files'),
   htmlmin = require('gulp-htmlmin'),
   inject = require('gulp-inject'),
   sass = require('gulp-sass'),
+  typescript = require('gulp-typescript'),
   watch = require('gulp-watch'),
   webserver = require('gulp-webserver');
 
@@ -32,11 +33,18 @@ gulp.task('build:sass', () => {
     .pipe(gulp.dest('./dist'));
 });
 
+// TypeScript
+gulp.task('build:ts', () => {
+  gulp.src('src/**/*.ts')
+    .pipe(typescript({ noImplicitAny: true, out: 'app.js' }))
+    .pipe(gulp.dest('./dist'));
+});
+
 // HTML
 gulp.task('build:html', () => {
   gulp.src('./src/index.html')
     .pipe(gulp.dest('./dist'))
-    .pipe(inject(gulp.src(['dist/vendor/**/*.css', 'dist/**/*.css']), { relative: true }))
+    .pipe(inject(gulp.src(['dist/vendor/**/*.css', 'dist/**/*.css', 'dist/**/*.js']), { relative: true }))
     .pipe(htmlmin({
       removeComments: true,
       collapseWhitespace: true
@@ -46,9 +54,9 @@ gulp.task('build:html', () => {
 
 // Watch
 gulp.task('watch', ['serve'], () => {
-  gulp.watch(['src/**/*.html', 'src/**/*.scss'], ['build']);
+  gulp.watch(['src/**/*.html', 'src/**/*.scss', 'src/**/*.ts'], ['build']);
 });
 
-gulp.task('build', ['build:bower', 'build:sass', 'build:html']);
+gulp.task('build', ['build:bower', 'build:sass', 'build:ts', 'build:html']);
 gulp.task('serve', ['build', 'server']);
 gulp.task('serve:watch', ['serve', 'watch']);
